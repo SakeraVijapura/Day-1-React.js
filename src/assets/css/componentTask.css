@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.main {
+    padding: 30px 50px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(236, 230, 230);
+}
+
+h2 {
+    font-family: sans-serif;
+}
