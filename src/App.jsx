@@ -1,4 +1,4 @@
-import BtnColorDynamic from "./assets/components/BtnColorDynamic"
+import Btn from "./assets/components/btn"
 import CapilizeFirstLetter from "./assets/components/CapilizeFirstLetter"
 import ExtractObjProperties from "./assets/components/ExtractObjProperties"
 import FilterMaping from "./assets/components/FilterMaping"
@@ -15,7 +15,7 @@ function App() {
       <Greeting />
 
       {/* Using Bootstrap Make one button color dynamic */}
-      <BtnColorDynamic />
+      <Btn />
 
       {/* Extracting Object Properties */}
       <ExtractObjProperties />
