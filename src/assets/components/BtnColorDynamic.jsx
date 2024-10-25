@@ -1,51 +1,54 @@
-import { useState } from 'react';
+import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-const BtnColorDynamic = () => {
-    const BtnClasses = [
-        { className: 'btn-primary', label: 'Primary' },
-        { className: 'btn-secondary', label: 'Secondary' },
-        { className: 'btn-success', label: 'Success' },
-        { className: 'btn-danger', label: 'Danger' },
-        { className: 'btn-warning', label: 'Warning' },
-        { className: 'btn-info', label: 'Info' },
-        { className: 'btn-light', label: 'Light' },
-        { className: 'btn-dark', label: 'Dark' }
+const Btn = () => {
+
+    const [selectedColor, setSelectedColor] = useState('');
+
+    const colors = [
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark'
     ];
 
-    const [isAlertMsg, setIsAlertMsg] = useState('');
-
-    const handleClick = (label) => {
-        setIsAlertMsg(`You clicked ${label} button!`);
-
+    function handleAlert(item) {
+        setSelectedColor(item);
     }
 
-    console.log(isAlertMsg);
-
     return (
-        <div className='container mt-5'>
-            <div className="mb-4">
-                {BtnClasses.map(({ className, label }) => (
-                    <button
-                        key={className}
-                        type="button"
-                        onClick={() => handleClick(label)}
-                        className={`btn ${className} me-3`}
-                    >
-                        {label}
-                    </button>
-                ))}
+        <div className="container">
+            <div className="d-flex gap-4 mt-5">
+                {colors.map((item) => {
+                    return (
+                        <button
+                            key={item}
+                            type="button"
+                            className={"btn btn-" + item}
+                            onClick={() => handleAlert(item)}
+                        >
+                            {item.charAt(0).toUpperCase() + item.substring(1)}
+                        </button>
+                    );
+                })
+                }
             </div>
 
-            {isAlertMsg && (
-                <div className={`alert alert-info`}>{isAlertMsg}</div>
-            )
-
-            }
+            <div>
+                {selectedColor ? (
+                    <div className={"alert mt-4 alert-" + selectedColor} role="alert">
+                        You clicked on {selectedColor} button!
+                    </div>
+                ) : null}
+            </div>
 
         </div >
     )
 }
 
-export default BtnColorDynamic
+export default Btn;
